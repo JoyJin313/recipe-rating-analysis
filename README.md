@@ -90,7 +90,19 @@ Before exploring relationships between variables, we first examine the distribut
 
 The variable `prop_fat` represents the proportion of total fat (PDV) relative to the total calories of each recipe. Understanding the distribution of `prop_fat` helps us evaluate whether fat levels vary widely across recipes or cluster around certain values. A histogram and a boxplot are shown below.
 
-图片
+<iframe
+  src="asset/Univariate_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="asset/Univariate_boxplot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 From the histogram of `prop_fat`, we observe that the distribution of fat proportion is right-skewed. Most recipes fall within the range of **0.04 to 0.10**, with the center of the distribution located near the mean value of approximately 0.068. There is also a noticeable spike near 0, indicating that a subset of recipes contains very little or almost no fat.
 
@@ -108,8 +120,23 @@ We produce two sets of plots:
 2. A **boxplot of average ratings**, conditioned on whether a recipe is categorized as low-fat or high-fat.  
 
 Together, these visualizations help us identify patterns that may motivate a meaningful hypothesis test.
-图片
+
+<iframe
+  src="asset/Bivariate_scatter.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 The scatter plot of `prop_fat` versus `avg_rating` shows that average ratings are heavily clustered between 4.0 and 5.0 across all fat proportions. This indicates that most recipes, regardless of their fat content, tend to receive high ratings on Food.com. There is no strong visible trend suggesting that higher or lower fat proportion consistently influences the average rating. Instead, the plot shows a wide vertical band at each fat level, reflecting the fact that user ratings are concentrated at the upper end of the scale.
+
+<iframe
+  src="asset/Bivariate_boxplot.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 The boxplot comparing average ratings between high-fat and low-fat recipes provides a clearer side-by-side comparison. Both categories have very similar medians (close to 5.0) and comparable overall distributions. While there are more low-rating outliers in the low-fat group, the central tendency and interquartile ranges are nearly identical. This suggests that fat category alone does not appear to lead to noticeable differences in how recipes are rated. 
 
@@ -228,7 +255,12 @@ We generated 1000 permuted datasets by randomly shuffling the missingness indica
 
 **Results**
 
-图片
+<iframe
+  src="asset/Missing_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 The observed difference of 0.0037 is indicated by the red vertical line in the empirical distribution plot. Since the observed p-value（0.0） is **<< 0.05**, we reject the null hypothesis.  
 **Conclusion:** The missingness of `rating` depends on `fat_category`. High-fat and low-fat recipes do not share the same missingness rate.
@@ -251,7 +283,12 @@ We again performed a permutation test by shuffling the missingness indicator of 
 
 **Results**
 
-图片
+<iframe
+  src="asset/Missing_distribution2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 The observed test statistic of 51.45 appears as the red vertical line. The resulting p-value（0.118） is **greater than 0.05**, so we fail to reject the null hypothesis.  
 **Conclusion:** The missingness of `rating` does not depend on the cooking time (`minutes`) of a recipe.
@@ -302,7 +339,12 @@ We perform a permutation test by:
 4. Comparing the observed statistic to the distribution of permuted statistics.  
 5. Calculating the empirical p-value.
 
-图片
+<iframe
+  src="asset/Hypo_diagram.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 The plot above shows the null distribution of our test statistic — the difference in mean ratings between the two groups (low-fat and high-fat recipes) under the assumption that fat category has no effect on rating. This distribution was created by repeatedly shuffling the fat category labels and recomputing the mean difference for 1000 permutations.
 
